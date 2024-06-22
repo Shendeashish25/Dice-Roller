@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background-color: black;
+    }
+
+    .img-main {
+        display: block;
+        margin: 70px auto;
+        height: 300px;
+
+    }
+.animate{
+    animation: roll is infinite;
+}
+    .btn {
+        display: block;
+        margin: 0px auto;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 05px;
+        background-color: rgb(27, 139, 204);
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    @keyframes roll {
+        0% {
+
+            transform: rotate(0deg);
+
+        }
+
+        100% {
+
+            transform: rotate(360deg);
+
+        }
+
+    }
+</style>
+
+
+
+
+
+<body>
+
+
+    <img src="/img/dice.png" class="img-main" alt="Dice" id="img-main" />
+
+    <br />
+    <br />
+    <button class="btn" id="btn" onclick="rollDice()"> Roll Dice</button>
+
+
+
+    <script>
+
+
+        function rollDice() {
+
+            const min = 1;
+            const max = 6;
+
+            const randomNo = Math.round(Math.random() * (max - min)) + min;
+
+            const diceRoll = document.getElementById(`btn`);
+            const imgMain = document.getElementById(`img-main`);
+
+
+            switch (randomNo) {
+                case 1:
+                    imgMain.src = "/img/one.png";
+                    break;
+                case 2:
+                    imgMain.src = "/img/two.png";
+                    break;
+                case 3:
+                    imgMain.src = "/img/three.png";
+                    break;
+
+                case 4:
+                    imgMain.src = "/img/four.png";
+                    break;
+
+                case 5:
+                    imgMain.src = "/img/five.png"
+                    break;
+                case 6:
+                    imgMain.src = "/img/six.png";
+                    break;
+
+            }
+
+            imgMain.classList.add("animate");
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
